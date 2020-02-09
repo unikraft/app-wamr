@@ -1,0 +1,24 @@
+specification: '0.4'
+
+unikraft: 0.4
+
+architectures:
+  x86_64:
+    kconfig:
+      - CONFIG_ARCH_X86_64=y
+
+platforms:
+  linuxu:
+    kconfig:
+      - CONFIG_PLAT_LINUXU=y
+      - CONFIG_LINUXU_DEFAULT_HEAPMB=4
+
+  kvm:
+    kconfig:
+      - CONFIG_PLAT_KVM=y
+
+libraries:
+  wamr: 0.4
+  pthread-embedded: 0.4
+  lwip: 0.4
+  newlib: 0.4
