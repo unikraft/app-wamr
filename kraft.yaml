@@ -1,6 +1,6 @@
 specification: '0.4'
 
-unikraft: 0.4
+unikraft: '0.4'
 
 architectures:
   x86_64:
@@ -18,7 +18,7 @@ platforms:
       - CONFIG_PLAT_KVM=y
 
 libraries:
-  wamr: 0.4
-  pthread-embedded: 0.4
-  lwip: 0.4
-  newlib: 0.4
+  wamr: '0.4'
+  pthread-embedded: '0.4'
+  lwip: '0.4'
+  newlib: '0.4'
