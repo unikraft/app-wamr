@@ -3,22 +3,23 @@ specification: '0.4'
 unikraft: '0.4'
 
 architectures:
-  x86_64:
-    kconfig:
-      - CONFIG_ARCH_X86_64=y
+  x86_64: true
 
 platforms:
-  linuxu:
-    kconfig:
-      - CONFIG_PLAT_LINUXU=y
-      - CONFIG_LINUXU_DEFAULT_HEAPMB=4
+  kvm: true
 
-  kvm:
-    kconfig:
-      - CONFIG_PLAT_KVM=y
+volumes:
+  initrd:
+      type: initrd
 
 libraries:
-  wamr: '0.4'
+  wamr:
+    version: '0.4'
+    kconfig:
+      - CONFIG_LIBWAMR_MAIN_FUNCTION=y
   pthread-embedded: '0.4'
   lwip: '0.4'
-  newlib: '0.4'
+  newlib:
+    version: '0.4'
+    kconfig:
+      - CONFIG_LIBNEWLIBC=y
