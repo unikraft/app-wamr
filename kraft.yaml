@@ -8,9 +8,11 @@ architectures:
 platforms:
   kvm: true
 
-volumes:
-  initrd:
-      type: initrd
+run:
+  volumes:
+    initrd:
+      driver: initrd
+      source: ./main.wasm
 
 libraries:
   wamr:
