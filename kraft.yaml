@@ -1,6 +1,6 @@
 specification: '0.4'
 
-unikraft: '0.4'
+unikraft: '0.5'
 
 architectures:
   x86_64: true
@@ -16,12 +16,12 @@ run:
 
 libraries:
   wamr:
-    version: '0.4'
+    version: '0.5'
     kconfig:
       - CONFIG_LIBWAMR_MAIN_FUNCTION=y
-  pthread-embedded: '0.4'
-  lwip: '0.4'
+  pthread-embedded: '0.5'
+  lwip: '0.5'
   newlib:
-    version: '0.4'
+    version: '0.5'
     kconfig:
       - CONFIG_LIBNEWLIBC=y
