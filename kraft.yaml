@@ -1,19 +1,10 @@
-specification: '0.4'
-
-unikraft: '0.5'
-
-architectures:
-  x86_64: true
-
-platforms:
-  kvm: true
-
-run:
-  volumes:
-    initrd:
-      driver: initrd
-      source: ./main.wasm
-
+specification: '0.5'
+name: wamr
+unikraft:
+  version: '0.5'
+targets:
+  - architecture: x86_64
+    platform: kvm
 libraries:
   wamr:
     version: '0.5'
@@ -25,3 +16,7 @@ libraries:
     version: '0.5'
     kconfig:
       - CONFIG_LIBNEWLIBC=y
+volumes:
+  initrd:
+    driver: initrd
+    source: ./main.wasm
