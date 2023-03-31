@@ -1,0 +1,1 @@
+awk -f /home/anisa/ChallengePort/unikraft/lib/syscall_shim/uk_syscall_r_fn.awk    -F '-'    /home/anisa/ChallengePort/apps/app-wamr/build/libsyscall_shim/provided_syscalls.h.in > /home/anisa/ChallengePort/apps/app-wamr/build/libsyscall_shim/uk_syscall_r_fn.c

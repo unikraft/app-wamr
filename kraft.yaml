@@ -10,12 +10,22 @@ libraries:
     version: '0.5'
     kconfig:
       - CONFIG_LIBWAMR_MAIN_FUNCTION=y
-  pthread-embedded: '0.5'
-  lwip: '0.5'
-  newlib:
+  musl:
+    version: '0.5'
+  lwip:
     version: '0.5'
     kconfig:
-      - CONFIG_LIBNEWLIBC=y
+      - CONFIG_LWIP_UKNETDEV=y
+      - CONFIG_LWIP_TCP=y
+      - CONFIG_LWIP_WND_SCALE=y
+      - CONFIG_LWIP_TCP_KEEPALIVE=y
+      - CONFIG_LWIP_THREADS=y
+      - CONFIG_LWIP_SOCKET=y
+      - CONFIG_LWIP_AUTOIFACE=y
+      - CONFIG_LWIP_IPV4=y
+      - CONFIG_LWIP_DHCP=y
+      - CONFIG_LWIP_DNS=y
+
 volumes:
   initrd:
     driver: initrd

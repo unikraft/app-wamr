@@ -1,0 +1,1 @@
+awk -f /home/anisa/ChallengePort/unikraft/lib/syscall_shim/gen_syscall_nrs.awk /home/anisa/ChallengePort/unikraft/lib/syscall_shim/arch/x86_64/syscall.h.in > /home/anisa/ChallengePort/apps/app-wamr/build/libsyscall_shim/include/uk/bits/syscall_nrs.h.new
