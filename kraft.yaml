@@ -1,21 +1,30 @@
 specification: '0.5'
 name: wamr
 unikraft:
-  version: '0.5'
+  version: stable
 targets:
   - architecture: x86_64
     platform: kvm
 libraries:
   wamr:
-    version: '0.5'
+    version: stable
     kconfig:
       - CONFIG_LIBWAMR_MAIN_FUNCTION=y
-  pthread-embedded: '0.5'
-  lwip: '0.5'
-  newlib:
-    version: '0.5'
+  lwip: 
+    version: stable
     kconfig:
-      - CONFIG_LIBNEWLIBC=y
+      - CONFIG_LWIP_UKNETDEV=y
+      - CONFIG_LWIP_TCP=y
+      - CONFIG_LWIP_WND_SCALE=y
+      - CONFIG_LWIP_TCP_KEEPALIVE=y
+      - CONFIG_LWIP_THREADS=y
+      - CONFIG_LWIP_SOCKET=y
+      - CONFIG_LWIP_AUTOIFACE=y
+      - CONFIG_LWIP_IPV4=y
+      - CONFIG_LWIP_DHCP=y
+      - CONFIG_LWIP_DNS=y
+  musl: 
+    version: stable
 volumes:
   initrd:
     driver: initrd
