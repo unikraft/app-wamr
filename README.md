@@ -145,7 +145,7 @@ Use `make menuconfig` to configure the application. Make sure the `lwip`, `musl`
 
 ## Build
 
-Building uses as input the `.config` file from above, and results in a unikernel image as output.
+Building uses the `.config` file as input from above, and results in a unikernel image as output.
 The unikernel output image, together with intermediary build files, are stored in the `build/` directory.
 
 ### Clean Up
