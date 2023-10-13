@@ -2,9 +2,69 @@ specification: '0.5'
 name: wamr
 unikraft:
   version: stable
+  kconfig:
+    - CONFIG_LIBUKLIBPARAM=y
 targets:
-  - architecture: x86_64
-    platform: kvm
+    - name: wamr-qemu-x86_64-9pfs
+      architecture: x86_64
+      platform: qemu
+      kconfig:
+        - CONFIG_PLAT_KVM=y
+        - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS_9PFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS="9pfs"
+        - CONFIG_LIBVFSCORE_ROOTDEV="fs1"
+    - name: wamr-qemu-x86_64-initrd
+      architecture: x86_64
+      platform: qemu
+      kconfig:
+        - CONFIG_PLAT_KVM=y
+        - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS_INITRD=y
+        - CONFIG_LIBVFSCORE_ROOTFS="initrd"
+    - name: wamr-qemu-aarch64-9pfs
+      architecture: arm64
+      platform: qemu
+      kconfig:
+        - CONFIG_PLAT_KVM=y
+        - CONFIG_ARCH_ARM_64=y
+        - CONFIG_MCPU_ARM64_NONE=y
+        - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS_9PFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS="9pfs"
+        - CONFIG_LIBVFSCORE_ROOTDEV="fs1"
+    - name: wamr-qemu-aarch64-initrd
+      architecture: arm64
+      platform: qemu
+      kconfig:
+        - CONFIG_PLAT_KVM=y
+        - CONFIG_ARCH_ARM_64=y
+        - CONFIG_MCPU_ARM64_NONE=y
+        - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS_INITRD=y
+        - CONFIG_LIBVFSCORE_ROOTFS="initrd"
+    - name: wamr-fc-x86_64-initrd
+      architecture: x86_64
+      platform: fc
+      kconfig:
+        - CONFIG_PLAT_KVM=y
+        - CONFIG_KVM_BOOT_PROTO_LXBOOT=y
+        - CONFIG_KVM_VMM_FIRECRACKER=y
+        - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS_INITRD=y
+        - CONFIG_LIBVFSCORE_ROOTFS="initrd"
+    - name: wamr-fc-aarch64-initrd
+      architecture: arm64
+      platform: fc
+      kconfig:
+        - CONFIG_PLAT_KVM=y
+        - CONFIG_KVM_BOOT_PROTO_LXBOOT=y
+        - CONFIG_KVM_VMM_FIRECRACKER=y
+        - CONFIG_ARCH_ARM_64=y
+        - CONFIG_MCPU_ARM64_NONE=y
+        - CONFIG_LIBVFSCORE_AUTOMOUNT_ROOTFS=y
+        - CONFIG_LIBVFSCORE_ROOTFS_INITRD=y
+        - CONFIG_LIBVFSCORE_ROOTFS="initrd"
 libraries:
   wamr:
     version: stable
@@ -12,20 +72,5 @@ libraries:
       - CONFIG_LIBWAMR_MAIN_FUNCTION=y
   lwip: 
     version: stable
-    kconfig:
-      - CONFIG_LWIP_UKNETDEV=y
-      - CONFIG_LWIP_TCP=y
-      - CONFIG_LWIP_WND_SCALE=y
-      - CONFIG_LWIP_TCP_KEEPALIVE=y
-      - CONFIG_LWIP_THREADS=y
-      - CONFIG_LWIP_SOCKET=y
-      - CONFIG_LWIP_AUTOIFACE=y
-      - CONFIG_LWIP_IPV4=y
-      - CONFIG_LWIP_DHCP=y
-      - CONFIG_LWIP_DNS=y
   musl: 
     version: stable
-volumes:
-  initrd:
-    driver: initrd
-    source: ./main.wasm
