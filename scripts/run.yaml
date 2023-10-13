@@ -1,0 +1,5 @@
+runs:
+  - rootfs: rootfs
+    memory: 32
+    networking: False
+    command: /main.wasm
