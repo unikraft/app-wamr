@@ -1,6 +1,6 @@
 .vscode
 
 # build files
-build/
-.config*
-.unikraft/
+/build/
+/.config*
+/.unikraft/
